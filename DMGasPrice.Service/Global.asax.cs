@@ -29,13 +29,13 @@ namespace DMGasPrice.Service
 
 			routes.MapRoute(
 				"ListGasPrices",
-				"",
+				"Prices",
 				new { controller = "Prices", action = "Index"}
 			);
 
 			routes.MapRoute(
 				"GetGasPrice",
-				"{key}",
+				"Prices/{key}",
 				new { controller = "Prices", action = "Details", key = "" }
 			);
 
@@ -78,43 +78,43 @@ namespace DMGasPrice.Service
 
             routes.MapRoute(
                 "GasPriceTorontoGTALondon",
-                "Toronto-GTA-London",
+                "GasPrice/Toronto-GTA-London",
                 new { controller = "Prices", action = "DetailsOld", key = 133, cityName = "Toronto-GTA-London" }
             );
 
             routes.MapRoute(
                 "GasPriceOttawa",
-                "Ottawa",
+                "GasPrice/Ottawa",
                 new { controller = "Prices", action = "DetailsOld", key = 86, cityName = "Ottawa" }
             );
 
             routes.MapRoute(
                 "GasPriceMontreal",
-                "Montreal",
+                "GasPrice/Montreal",
                 new { controller = "Prices", action = "DetailsOld", key = 244, cityName = "Montreal" }
             );
 
             routes.MapRoute(
                 "GasPriceWinnipeg",
-                "Winnipeg",
+                "GasPrice/Winnipeg",
                 new { controller = "Prices", action = "DetailsOld", key = 117, cityName = "Winnipeg" }
             );
 
             routes.MapRoute(
                 "GasPriceKitchenerWaterloo",
-                "Kitchener-Waterloo",
+                "GasPrice/Kitchener-Waterloo",
                 new { controller = "Prices", action = "DetailsOld", key = 107, cityName = "Kitchener-Waterloo" }
             );
 
             routes.MapRoute(
                 "GasPriceVancouver",
-                "Vancouver",
+                "GasPrice/Vancouver",
                 new { controller = "Prices", action = "Details", key = 123, cityName = "Vancouver" }
             );
 
             routes.MapRoute(
                 "GasPriceCalgary",
-                "Calgary",
+                "GasPrice/Calgary",
                 new { controller = "Prices", action = "Details", key = 119, cityName = "Calgary" }
             );
         }
