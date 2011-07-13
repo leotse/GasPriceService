@@ -31,11 +31,16 @@ namespace DMGasPrice.Service.Helpers
 
         private void TimerProcessCallback(object state)
         {
-            DateTime currentTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
-            if (currentTime.Hour == 17)
+            // protective try catch to avoid app pool getting killed
+            try
             {
-                GasPriceCache.Instance.Refresh();
+                DateTime currentTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time"));
+                if (currentTime.Hour == 17)
+                {
+                    GasPriceCache.Instance.Refresh();
+                }
             }
+            catch (Exception) { }
         }
 
         #endregion
