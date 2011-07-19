@@ -11,22 +11,21 @@ namespace DMGasPrice.Service.Helpers
     public static class Utils
     {
 
-        private const string DATE_FORMAT = "[\\w ]+(" + MONTHS + "\\s+\\d{1,2},\\s+\\d{4})[\\w ]+";
-        private const string MONTHS = "Jan\\w+|Feb\\w+|Mar\\w+|Apr\\w+|May\\w+|Jun\\w+|Jul\\w+";
+        private const string DATE_FORMAT = MONTHS + "\\s+\\d{1,2},\\s+\\d{4}";
+        private const string MONTHS = "(Jan\\w+|Feb\\w+|Mar\\w+|Apr\\w+|May\\w+|Jun\\w+|Jul\\w+|Aug\\w+|Sep\\w+|Oct\\w+|Nov\\w+|Dec\\w+)";
         public static DateTime ExtractDate(string text)
         {
             Match match = Regex.Match(text, DATE_FORMAT, RegexOptions.IgnoreCase);
-            if (match.Success && match.Groups.Count >= 2)
+            if (match.Success && match.Groups.Count > 0)
             {
                 DateTime result;
-                if (DateTime.TryParse(match.Groups[1].Value, out result))
+                if (DateTime.TryParse(match.Groups[0].Value, out result))
                 {
                     return result;
                 }
-                return DateTime.Now;
             }
 
-            return default(DateTime);
+            return DateTime.Now;
         }
 
         public static int ExtractCityKey(string text)
