@@ -25,7 +25,7 @@ namespace DMGasPrice.Service.Helpers
                 }
             }
 
-            return DateTime.Today;
+            return DateTime.Today.AddDays(1);
         }
 
         public static int ExtractCityKey(string text)
