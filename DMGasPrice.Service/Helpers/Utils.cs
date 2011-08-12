@@ -52,7 +52,7 @@ namespace DMGasPrice.Service.Helpers
 
         public static double ExtractPrice(string text)
         {
-            Match match = Regex.Match(text, "(\\d+\\.\\d*).+");
+            Match match = Regex.Match(text, "(\\d+(\\.\\d+)*)");
             if (match.Success && match.Groups.Count >= 2)
             {
                 return double.Parse(match.Groups[1].Value);
