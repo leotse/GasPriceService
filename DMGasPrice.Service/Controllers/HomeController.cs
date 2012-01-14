@@ -16,5 +16,10 @@ namespace DMGasPrice.Service.Controllers
             return View();
         }
 
+        public ActionResult SendGrid()
+        {
+            return View();
+        }
+
     }
 }

@@ -39,6 +39,12 @@ namespace DMGasPrice.Service
 				new { controller = "Prices", action = "Details", key = "" }
 			);
 
+            routes.MapRoute(
+                "Static",
+                "SendGrid",
+                new { controller = "Home", action = "SendGrid" }
+            );
+
 			routes.MapRoute(
 				"Default", // Route name
 				"{controller}/{action}/{id}", // URL with parameters
