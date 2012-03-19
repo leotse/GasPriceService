@@ -41,7 +41,7 @@ namespace DMGasPrice.Service.Helpers
 
         public static string ExtractCityName(string text)
         {
-            Match match = Regex.Match(text, "(\\w+) gas price", RegexOptions.IgnoreCase);
+            Match match = Regex.Match(text, "(.+) gas price", RegexOptions.IgnoreCase);
             if (match.Success && match.Groups.Count >= 2)
             {
                 return match.Groups[1].Value;
